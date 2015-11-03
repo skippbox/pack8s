@@ -15,7 +15,7 @@
       "source_ami": "ami-05602572",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
-      "ami_name": "k8s_single_{{timestamp}}"
+      "ami_name": "k8s_ubuntu_{{timestamp}}"
     }
   ],
 
