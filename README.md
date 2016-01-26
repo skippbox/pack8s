@@ -4,6 +4,17 @@ Packer templates for k8s solo
 These are packer templates used to create AWS AMI that run Kubernetes on a single node.
 You will need to have [Packer](https://www.packer.io) installed on your local machine and a AWS account.
 
+Support for additional cloud providers is in the works, PR welcome.
+Currently only Ubuntu and Atomic are supported.
+
+On Ubuntu a docker based deloyment is used while on Atomic, the default systemd units are used.
+
+Usage
+-----
+
+Pick your OS of choice (i.e Ubuntu or Atomic)
+    
+    $ cd ubuntu
     $ packer build k8s.json 
     ... 
     ==> amazon-ebs: Creating the AMI: k8s_atomic_single_1446562839
@@ -30,7 +41,12 @@ SSH to the running instance and enjoy Kubernetes on a single node
     $ ./kubectl get pods
     NAME                             READY     STATUS    RESTARTS   AGE
     kube-controller-ip-172-31-32-7   5/5       Running   0          1m
-    ubuntu@ip-172-31-32-7:~$ ./kubectl get nodes
+
+    $ ./kubectl get nodes
     NAME             LABELS                                  STATUS
     ip-172-31-32-7   kubernetes.io/hostname=ip-172-31-32-7   Ready
 
+Support
+-------
+
+If you experience problems with `pack8s` or want to suggest improvements please file an [issue](https://github.com/skippbox/pack8s/issues).
